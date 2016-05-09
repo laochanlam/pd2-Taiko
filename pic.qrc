@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="face.png">Reference/website/face.png</file>
+        <file alias="g22o.png">Reference/website/g22o.png</file>
+        <file alias="interf.jpg">Reference/website/interf.jpg</file>
+        <file alias="man.jpg">Reference/website/man.jpg</file>
+    </qresource>
+</RCC>

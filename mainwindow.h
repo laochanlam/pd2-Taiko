@@ -21,12 +21,11 @@ public:
 
     QTimer *timer;
 
+    int i;
+    int a[10];
 
-    int i = 0;
 
-    int face[100];
 
-    int coor[100] = {2000};
 
 private slots:
     void on_StartButton_clicked();
@@ -35,7 +34,7 @@ private slots:
 
 
 private:
-
+    void keyPressEvent(QKeyEvent *);
     Ui::MainWindow *ui;
 
 };

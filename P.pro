@@ -22,4 +22,4 @@ FORMS    += mainwindow.ui
 DISTFILES += \
     Reference/website/blog_150123_05.jpg
 
-RESOURCES +=
+RESOURCES += pic.qrc
