@@ -192,6 +192,32 @@
      <string/>
     </property>
    </widget>
+   <widget class="QLabel" name="label_Score">
+    <property name="geometry">
+     <rect>
+      <x>2000</x>
+      <y>190</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Time_label">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>180</y>
+      <width>58</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
    <zorder>StartButton</zorder>
    <zorder>face1</zorder>
    <zorder>face2</zorder>
@@ -203,6 +229,8 @@
    <zorder>face8</zorder>
    <zorder>face9</zorder>
    <zorder>face0</zorder>
+   <zorder>label_Score</zorder>
+   <zorder>Time_label</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

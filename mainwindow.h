@@ -21,9 +21,11 @@ public:
 
     QTimer *timer;
 
-    int i;
+    int i,j,k;
     int a[10];
-
+    int score;
+    int test;
+    double playtime;
 
 
 

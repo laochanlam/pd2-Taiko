@@ -4,5 +4,8 @@
         <file alias="g22o.png">Reference/website/g22o.png</file>
         <file alias="interf.jpg">Reference/website/interf.jpg</file>
         <file alias="man.jpg">Reference/website/man.jpg</file>
+        <file alias="faceB.png">Reference/website/faceB.png</file>
+        <file alias="fatB.png">Reference/website/fatB.png</file>
+        <file alias="redx.png">Reference/website/redx.png</file>
     </qresource>
 </RCC>
