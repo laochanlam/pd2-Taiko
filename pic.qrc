@@ -7,5 +7,6 @@
         <file alias="faceB.png">Reference/website/faceB.png</file>
         <file alias="fatB.png">Reference/website/fatB.png</file>
         <file alias="redx.png">Reference/website/redx.png</file>
+        <file alias="kick.png">Reference/website/kick.png</file>
     </qresource>
 </RCC>

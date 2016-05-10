@@ -22,6 +22,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->StartButton->setStyleSheet("#StartButton{border-image:url(:/g22o.png)}");
     ui->StartButton->showFullScreen();
 
+
+    ui->kick->setStyleSheet("#kick{border-image:url(:/kick.png)}");
+    ui->kick->setGeometry(-30,-80,1980,1200);
+    ui->kick->hide();
+
+
+
     for (i=0;i<10;i++)
     {
        a[i] = (rand() % 5000+1) + 2000;
@@ -36,8 +43,8 @@ MainWindow::MainWindow(QWidget *parent) :
              j++;
        }
     }
-   // ui->face->hide();
-    playtime = 3;
+
+    playtime = 30;
     test = 0;
     connect(ui->StartButton,SIGNAL(clicked()),
             ui->StartButton,SLOT(close()));
@@ -51,6 +58,7 @@ void MainWindow::MySlot()
 {
     for (i=0;i<10;i++)
         a[i] = a[i] - 10;
+
 
 
     QString Score = "Score:";
@@ -71,7 +79,7 @@ void MainWindow::MySlot()
     {
         test = 1;
     //    QMessageBox::information(this,"GG","u",QMessageBox::Yes | QMessageBox::No );
-    QMessageBox::StandardButton rb = QMessageBox::information(NULL, "GameOver!", "Score:" + QString::number(score)  + "\nqDo you wanna play again?", QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+    QMessageBox::StandardButton rb = QMessageBox::information(NULL, "GameOver!", "Score:" + QString::number(score)  + "\nDo you wanna play again?", QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
         if(rb == QMessageBox::Yes)
         {
             MainWindow *c = new MainWindow();
@@ -342,7 +350,7 @@ void MainWindow::MySlot()
     ui->face7->setGeometry(a[7],250,191,161);
     ui->face8->setGeometry(a[8],250,191,161);
     ui->face9->setGeometry(a[9],250,191,161);
-
+    //ui->kick->hide();
 
 }
 
@@ -371,6 +379,21 @@ void MainWindow::on_StartButton_clicked()
     ui->face8->setStyleSheet("#face8{border-image:url(:/fatB.png)}");
     ui->face9->setStyleSheet("#face9{border-image:url(:/fatB.png)}");
 
+    ui->A->setStyleSheet("#A{border-image:url(:/face.png)}");
+    ui->B->setStyleSheet("#B{border-image:url(:/fatB.png)}");
+    ui->C->setStyleSheet("#C{border-image:url(:/faceB.png)}");
+    ui->A->setGeometry(510,780,191,161);
+    ui->B->setGeometry(860,700,191,161);
+    ui->C->setGeometry(1200,780,191,161);
+    ui->def_A->setText("D");
+    ui->def_A->setFont(QFont( "Minion Pro Med" , 40 ,  QFont::Bold) );
+    ui->def_B->setText("SPACE");
+    ui->def_B->setFont(QFont( "Minion Pro Med" , 40 ,  QFont::Bold) );
+    ui->def_C->setText("J");
+    ui->def_C->setFont(QFont( "Minion Pro Med" , 40 ,  QFont::Bold) );
+    ui->def_A->setGeometry(590,885,191,161);
+    ui->def_B->setGeometry(888,800,191,161);
+    ui->def_C->setGeometry(1295,885,191,161);
 
     timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(MySlot()));
@@ -388,6 +411,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     if (event -> key() == Qt::Key_D)
     {
+          //  ui->kick->show();
             if (a[0] <=430 && a[0] >= 230)
                {score++;ui->face0->hide();}
             if (a[1] <=430 && a[1] >= 230)
@@ -399,6 +423,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
     if (event -> key() == Qt::Key_J)
     {
+           // ui->kick->show();
             if (a[3] <=430 && a[3] >= 230)
                {score++;ui->face3->hide();}
             if (a[4] <=430 && a[4] >= 230)
@@ -410,6 +435,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
     if (event -> key() == Qt::Key_Space)
     {
+          //  ui->kick->show();
             if (a[6] <=430 && a[6] >= 230)
                {score++; ui->face6->hide();}
             if (a[7] <=430 && a[7] >= 230)
@@ -418,6 +444,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
                {score++;ui->face8->hide();}
             if (a[9] <=430 && a[9] >= 230)
                {score++;ui->face9->hide();}
+
 
     }
 }
