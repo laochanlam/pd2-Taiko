@@ -91,9 +91,9 @@ void MainWindow::MySlot()
     ui->Time_label->setFont(QFont("Minion Pro Med",20));
 
 
-    QString Coltext = "Kick 'C' to Open Colour MODE!!!!!!";
+    QString Coltext = "'C' --- Colour Mode\n'+' & '-' --- control the speed";
     ui->colourtext->setText(Coltext);
-    ui->colourtext->setGeometry(700,800,800,500);
+    ui->colourtext->setGeometry(700,750,800,500);
     ui->colourtext->setFont(QFont("Minion Pro Med",30));
 
 
@@ -413,7 +413,7 @@ void MainWindow::on_StartButton_clicked()
     ui->def_C->setText("J");
     ui->def_C->setFont(QFont( "Minion Pro Med" , 40 ,  QFont::Bold) );
     ui->def_A->setGeometry(590,885,191,161);
-    ui->def_B->setGeometry(888,800,191,161);
+    ui->def_B->setGeometry(950,806,191,161);
     ui->def_C->setGeometry(1295,885,191,161);
 
     timer = new QTimer(this);
