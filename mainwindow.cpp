@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    colour = false;
 
     setObjectName("Openmenu");
 
@@ -23,11 +24,25 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->StartButton->showFullScreen();
 
 
-    ui->kick->setStyleSheet("#kick{border-image:url(:/kick.png)}");
-    ui->kick->setGeometry(-30,-80,1980,1200);
-    ui->kick->hide();
+    ui->kickA->setStyleSheet("#kickA{border-image:url(:/kickA.png)}");
+    ui->kickA->setGeometry(-30,-80,1980,1200);
+    ui->kickA->hide();
+
+    ui->kickB->setStyleSheet("#kickB{border-image:url(:/kickB.png)}");
+    ui->kickB->setGeometry(-30,-80,1980,1200);
+    ui->kickB->hide();
+
+    ui->kickC->setStyleSheet("#kickC{border-image:url(:/kickC.png)}");
+    ui->kickC->setGeometry(-30,-80,1980,1200);
+    ui->kickC->hide();
 
 
+    ui->Back->setStyleSheet("#Back{border-image:url(:/back.png)}");
+    ui->Back->setGeometry(20,770,300,300);
+    ui->Back->hide();
+
+
+    speed = 10;
 
     for (i=0;i<10;i++)
     {
@@ -57,7 +72,7 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::MySlot()
 {
     for (i=0;i<10;i++)
-        a[i] = a[i] - 10;
+        a[i] = a[i] - speed;
 
 
 
@@ -65,21 +80,28 @@ void MainWindow::MySlot()
     Score += QString::number(score);
     ui->label_Score->setText(Score);
     ui->label_Score->setGeometry(1760,130,150,150);
-    ui->label_Score->setFont(QFont("Score:",20));
+    ui->label_Score->setFont(QFont("Minion Pro Med",20));
 
-    playtime = playtime - 0.01;
+    playtime = playtime - (0.01);
     if (playtime<0) playtime = 0;
     QString Second = "Timeleft: ";
     Second += QString::number(playtime);
     ui->Time_label->setText(Second);
-    ui->Time_label->setGeometry(1300,930,300,200);
-    ui->Time_label->setFont(QFont("Time:",20));
+    ui->Time_label->setGeometry(1350,960,300,200);
+    ui->Time_label->setFont(QFont("Minion Pro Med",20));
+
+
+    QString Coltext = "Kick 'C' to Open Colour MODE!!!!!!";
+    ui->colourtext->setText(Coltext);
+    ui->colourtext->setGeometry(700,800,800,500);
+    ui->colourtext->setFont(QFont("Minion Pro Med",30));
+
 
     if (playtime ==0 && test == 0)
     {
         test = 1;
-    //    QMessageBox::information(this,"GG","u",QMessageBox::Yes | QMessageBox::No );
-    QMessageBox::StandardButton rb = QMessageBox::information(NULL, "GameOver!", "Score:" + QString::number(score)  + "\nDo you wanna play again?", QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+
+    QMessageBox::StandardButton rb = QMessageBox::information(NULL, "GameOver!", "Score:" + QString::number(score)  + "\nDo you wanna play again?", QMessageBox::Yes , QMessageBox::No);
         if(rb == QMessageBox::Yes)
         {
             MainWindow *c = new MainWindow();
@@ -89,7 +111,6 @@ void MainWindow::MySlot()
 
         if(rb == QMessageBox::No)
         {
-
             close();
         }
     }
@@ -366,7 +387,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_StartButton_clicked()
 {
-
+    ui->Back->show();
     setStyleSheet("#Openmenu{border-image:url(:/interf.jpg)}");
     ui->face0->setStyleSheet("#face0{border-image:url(:/face.png)}");
     ui->face1->setStyleSheet("#face1{border-image:url(:/face.png)}");
@@ -387,7 +408,7 @@ void MainWindow::on_StartButton_clicked()
     ui->C->setGeometry(1200,780,191,161);
     ui->def_A->setText("D");
     ui->def_A->setFont(QFont( "Minion Pro Med" , 40 ,  QFont::Bold) );
-    ui->def_B->setText("SPACE");
+    ui->def_B->setText("G");
     ui->def_B->setFont(QFont( "Minion Pro Med" , 40 ,  QFont::Bold) );
     ui->def_C->setText("J");
     ui->def_C->setFont(QFont( "Minion Pro Med" , 40 ,  QFont::Bold) );
@@ -397,7 +418,7 @@ void MainWindow::on_StartButton_clicked()
 
     timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(MySlot()));
-    timer->start(10);
+    timer->start(speed);
 
     score = 0;
 
@@ -411,7 +432,12 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     if (event -> key() == Qt::Key_D)
     {
-          //  ui->kick->show();
+            if (colour == true)
+                    {
+                        ui->kickA->show();
+                        ui->kickB->hide();
+                        ui->kickC->hide();
+                    }
             if (a[0] <=430 && a[0] >= 230)
                {score++;ui->face0->hide();}
             if (a[1] <=430 && a[1] >= 230)
@@ -423,7 +449,12 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
     if (event -> key() == Qt::Key_J)
     {
-           // ui->kick->show();
+            if (colour == true)
+                    {
+                        ui->kickA->hide();
+                        ui->kickB->show();
+                            ui->kickC->hide();
+                    }
             if (a[3] <=430 && a[3] >= 230)
                {score++;ui->face3->hide();}
             if (a[4] <=430 && a[4] >= 230)
@@ -433,9 +464,15 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
     }
 
-    if (event -> key() == Qt::Key_Space)
+    if (event -> key() == Qt::Key_G)
     {
-          //  ui->kick->show();
+            if (colour == true)
+                    {
+                        ui->kickA->hide();
+                        ui->kickB->hide();
+                        ui->kickC->show();
+                    }
+
             if (a[6] <=430 && a[6] >= 230)
                {score++; ui->face6->hide();}
             if (a[7] <=430 && a[7] >= 230)
@@ -445,7 +482,33 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             if (a[9] <=430 && a[9] >= 230)
                {score++;ui->face9->hide();}
 
+    }
 
+    if (event -> key() == Qt::Key_Plus)
+    {
+        if (speed <= 20)
+            speed = speed + 2;
+    }
+
+    if (event -> key() == Qt::Key_Minus)
+    {
+        if (speed >= 10)
+             speed = speed - 2;
+    }
+
+    if (event -> key() == Qt::Key_C)
+    {
+        ui->kickA->hide();
+        ui->kickB->hide();
+        ui->kickC->hide();
+        colour = !colour;
     }
 }
 
+
+void MainWindow::on_Back_clicked()
+{
+    MainWindow *c = new MainWindow();
+    c->show();
+    close();
+}

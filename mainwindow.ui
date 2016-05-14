@@ -301,7 +301,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="kick">
+   <widget class="QLabel" name="kickA">
     <property name="geometry">
      <rect>
       <x>96</x>
@@ -314,7 +314,61 @@
      <string/>
     </property>
    </widget>
-   <zorder>kick</zorder>
+   <widget class="QPushButton" name="Back">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>280</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="kickB">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>130</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="kickC">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>140</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="colourtext">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>450</y>
+      <width>47</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>kickA</zorder>
+   <zorder>kickC</zorder>
+   <zorder>kickB</zorder>
    <zorder>StartButton</zorder>
    <zorder>face1</zorder>
    <zorder>face2</zorder>
@@ -334,16 +388,8 @@
    <zorder>def_A</zorder>
    <zorder>def_B</zorder>
    <zorder>def_C</zorder>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1112</width>
-     <height>21</height>
-    </rect>
-   </property>
+   <zorder>Back</zorder>
+   <zorder>colourtext</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

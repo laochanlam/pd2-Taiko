@@ -4,7 +4,7 @@
 #include <QtCore>
 #include <QMainWindow>
 #include <Qpushbutton>
-
+#include <QLabel>
 
 
 namespace Ui {
@@ -19,26 +19,32 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    QTimer *timer;
 
-    int i,j,k;
-    int a[10];
     int score;
-    int test;
+    bool test;
+    bool colour;
     double playtime;
+    double speed;
 
 
 
 private slots:
-    void on_StartButton_clicked();
 
+    void on_StartButton_clicked();
     void MySlot();
 
 
+    void on_Back_clicked();
+
 private:
+
     void keyPressEvent(QKeyEvent *);
     Ui::MainWindow *ui;
 
+    int i,j,k;
+    int a[10];
+    QTimer *timer;
+    QTimer *kicktimer;
 };
 
 #endif // MAINWINDOW_H
